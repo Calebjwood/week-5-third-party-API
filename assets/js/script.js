@@ -1,18 +1,8 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+ 
   
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+ 
   
 
   var saveButton = $(".btn")
@@ -154,7 +144,49 @@ $(function () {
   }
 
   saveButton.on("click", savePlans)
-
-
   
+
+  var savedNine = localStorage.getItem("nine");
+  var savedTen = localStorage.getItem("ten");
+  var savedEleven = localStorage.getItem('eleven');
+  var savedTwelve = localStorage.getItem('twelve');
+  var savedOne = localStorage.getItem('one');
+  var savedTwo = localStorage.getItem('two');
+  var savedThree = localStorage.getItem('three');
+  var savedFour = localStorage.getItem('four');
+  var savedFive = localStorage.getItem('five'); 
+  
+  function renderSavedPlans(){
+    if (hourNineAm[0].childNodes[3].value !== null){
+      hourNineAm[0].childNodes[3].innerHTML = savedNine}
+    
+    if(hourTenAm[0].childNodes[3].value !== null){
+      hourTenAm[0].childNodes[3].innerHTML = savedTen}
+
+    if(hourElevenAm[0].childNodes[3].value !== null){
+      hourElevenAm[0].childNodes[3].innerHTML = savedEleven}
+
+    if(hourTwelvePm[0].childNodes[3].value !== null){
+      hourTwelvePm[0].childNodes[3].innerHTML = savedTwelve}
+
+    if(hourOnePm[0].childNodes[3].value !== null){
+      hourOnePm[0].childNodes[3].innerHTML = savedOne}
+
+    if(hourTwoPm[0].childNodes[3].value !== null){
+      hourTwoPm[0].childNodes[3].innerHTML = savedTwo }
+
+    if(hourThreePm[0].childNodes[3].value !== null){
+      hourThreePm[0].childNodes[3].innerHTML = savedThree}
+
+    if(hourFourPm[0].childNodes[3].value !== null){
+      hourFourPm[0].childNodes[3].innerHTML = savedFour}
+
+    if (hourFivePm[0].childNodes[3].value !== null){
+      hourFivePm[0].childNodes[3].innerHTML = savedFive}
+  }
+
+function init(){
+  renderSavedPlans()
+}
+init()
 });
