@@ -15,7 +15,10 @@ $(function () {
   //
   
 
+  var saveButton = $(".btn")
 
+  
+  
   
   var today = dayjs() 
   $("#currentDay").text(today.format("dddd, MMMM D, YYYY"))
@@ -30,10 +33,13 @@ $(function () {
   var hourThreePm = $('#hour-15')
   var hourFourPm = $('#hour-16')
   var hourFivePm = $('#hour-17')
-  
 
   
+    
+   
+   
 
+    
   if(parseInt(hourNineAm[0].innerText[0])  > today.$H){
   hourNineAm.addClass("future")
     }else if(
@@ -123,7 +129,32 @@ $(function () {
       hourFivePm.addClass("present")
       }
 
-  
+  function savePlans(){
+
+    if(this.parentNode.id === "hour-9"){
+      localStorage.setItem("nine", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-10"){
+      localStorage.setItem("ten", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-11"){
+      localStorage.setItem("eleven", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-12"){
+      localStorage.setItem("twelve", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-13"){
+      localStorage.setItem("one", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-14"){
+      localStorage.setItem("two", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-15"){
+      localStorage.setItem("three", this.parentNode.childNodes[3].value)
+    }else if(this.parentNode.id === "hour-16"){
+      localStorage.setItem("four", this.parentNode.childNodes[3].value)
+    }else{
+      localStorage.setItem('five', this.parentNode.childNodes[3].value)
+    }
+ 
+  }
+
+  saveButton.on("click", savePlans)
+
 
   
 });
